@@ -1,0 +1,47 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import url('https://fonts.googleapis.com/css2?family=Vollkorn&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
+* {
+	margin: 0;
+	box-sizing: border-box;
+	font-family: 'Mulish';
+}
+p {
+	font-family: 'Mulish';
+}
+h1,
+h2,
+h3,
+a {
+	margin: 0;
+	text-decoration: none;
+}
+ul,
+li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.DescHero {
+	color: rgba(24, 24, 27, 0.9);
+	font-family: 'Mulish';
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 36px;
+}
+
+.errorIcon {
+	color: red;
+}
+/* .ant-select-focused .ant-select-selector,
+.ant-select-selector:focus,
+.ant-select-selector:hover,
+.ant-select-selector:active,
+.ant-select-open .ant-select-selector {
+	border-color: #c4c4c4 !important;
+	box-shadow: none !important;
+} */

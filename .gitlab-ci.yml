@@ -1,0 +1,61 @@
+workflow:
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+      when: always
+
+default:
+  image: docker:20.10.16
+  services:
+    - docker:20.10.16-dind
+  before_script:
+    - cat "$CA_FILE" > "$DOCKER_TLS_CERTDIR/ca.pem"
+    - cat "$CERT_FILE" > "$DOCKER_TLS_CERTDIR/cert.pem"
+    - cat "$KEY_FILE" > "$DOCKER_TLS_CERTDIR/key.pem"
+    - docker --config "$DOCKER_TLS_CERTDIR" login -u "$DOCKER_REGISTRY_USER" -p "$DOCKER_REGISTRY_PASSWORD" "$DOCKER_REGISTRY_URL"
+    - docker info
+
+variables:
+  PUBLISH_NAME: itskills-frontend-hr
+  IMAGE_NAME: $CI_REGISTRY_IMAGE
+  DOCKER_HOST: tcp://alltrip.onwork.uz:2376
+  DOCKER_TLS_CERTDIR: '/certs'
+  DOCKER_TLS_VERIFY: 1
+  DOCKER_CERT_PATH: '$DOCKER_TLS_CERTDIR'
+
+stages:
+  - build-dev
+  - deploy-dev
+
+build_image_dev:
+  stage: build-dev
+  script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker build -t $IMAGE_NAME .
+
+push_image_dev:
+  stage: build-dev
+  dependencies:
+    - build_image_dev
+  needs:
+    - build_image_dev
+  script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker push $IMAGE_NAME
+
+.deploy-dev:
+  stage: deploy-dev
+  dependencies:
+    - build_image_dev
+  script:
+    - docker login -u "$DOCKER_REGISTRY_USER" -p "$DOCKER_REGISTRY_PASSWORD" "$DOCKER_REGISTRY_URL"
+    - docker context create swarm-${ENV} --docker "host=tcp://${HOST},ca=${CA_FILE},cert=${CERT_FILE},key=${KEY_FILE}"
+    - docker --context swarm-${ENV} stack deploy --prune -c ${FILE} --with-registry-auth ${PUBLISH_NAME}
+
+deploy-to-dev:
+  extends: .deploy-dev
+  environment:
+    name: dev
+  variables:
+    ENV: dev
+    HOST: alltrip.onwork.uz:2376
+    FILE: docker-compose.yml

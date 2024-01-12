@@ -1,0 +1,28 @@
+version: '3.9'
+
+services:
+  client:
+    image: reg.gitlab.onwork.uz/itic/it-skills-project/hr.itskills.uz:latest
+    ports:
+      - '5565:80'
+    volumes:
+      - itskills_hr_data:/itskills_storage
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 1
+        delay: 5s
+        order: start-first
+      restart_policy:
+        condition: any
+        max_attempts: 3
+    networks:
+      - itskills-network
+
+volumes:
+  itskills_hr_data:
+
+networks:
+  itskills-network:
+    external: true
+

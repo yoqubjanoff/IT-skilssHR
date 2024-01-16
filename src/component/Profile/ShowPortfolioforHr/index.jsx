@@ -8,7 +8,14 @@ import { useNavigate, useParams } from 'react-router-dom';
 import request from '../../../services/api/hr-request';
 import { ScrollToTop } from '../../../services/ScrollToTop/ScrollToTop';
 import { Loader } from '../../Loader/Loader';
+import { useTranslation } from 'react-i18next';
+
+
+
+
+
 const TalentProfile = () => {
+	const { t } = useTranslation();
 	const navigate = useNavigate();
 	let { id } = useParams();
 	const [loading, setLoading] = useState(false);
@@ -51,7 +58,7 @@ const TalentProfile = () => {
 							onClick={() => navigate(-1)}
 						>
 							<img src={Left} alt="download" width={20} height={20} />
-							<p className="text-[#18181B] text-[14px] font-[600] ">Orqaga</p>
+							<p className="text-[#18181B] text-[14px] font-[600] ">{t('w131')}</p>
 						</div>
 					</div>
 
@@ -115,7 +122,7 @@ const TalentProfile = () => {
 						"
 						>
 							<p className="text-[#18181B] text-[18px] font-[600] mb-[30px]">
-								Rasmlar
+							{t('w164')}
 							</p>
 							<div className="flex gap-[20px] flex-wrap justify-center">
 								{portfolio?.photoUrl && (

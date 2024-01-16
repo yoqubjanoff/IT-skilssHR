@@ -1,14 +1,18 @@
 import React from 'react';
 import Link from '../../../assets/icons/link.svg';
 import Sertifikat from '../../../assets/img/sertifikat.png';
+import { useTranslation } from 'react-i18next';
+
+
 
 const Award = ({ data }) => {
+	const { t, i18n } = useTranslation();
 	const { awards } = data;
 	return (
 		<div className="w-full min-h-[64px] bg-white p-[20px] border border-solid border-1 border-[#E3E3E7] rounded-[16px]">
 			<div className="w-full flex justify-between items-center">
 				<p className="text-[#18181B] text-[16px] font-[600] ">
-					Mukofotlar/Sertifikatlar
+					{t('w145')}
 				</p>
 			</div>
 

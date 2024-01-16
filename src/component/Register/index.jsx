@@ -88,7 +88,7 @@ const Register = () => {
 
 					<div className="w-full flex justify-center gap-[10px] my-[15px]">
 						<p className="text-gray-700 text-[14px] font-[500]">
-							Akkountingiz bormi
+							{t('w112')}
 						</p>
 						<p
 							className="text-blue-500 text-[14px] font-[500]  cursor-pointer hover:underline"
@@ -98,7 +98,7 @@ const Register = () => {
 									: navigate('/signin-talent')
 							}
 						>
-							Kirish
+							{t('w37')}
 						</p>
 					</div>
 				</div>

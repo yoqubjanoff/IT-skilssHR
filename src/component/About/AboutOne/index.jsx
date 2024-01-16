@@ -15,7 +15,12 @@ import { useParams } from 'react-router-dom';
 import moment from 'moment';
 import request from '../../../services/api';
 import { Loader } from '../../Loader/Loader';
+import { useTranslation } from 'react-i18next';
+
+
+
 const AboutOne = () => {
+	const { t, i18n } = useTranslation();
 	const navigate = useNavigate();
 	const [data, setData] = useState({});
 	const [loading, setLoading] = useState(false);
@@ -79,7 +84,7 @@ const AboutOne = () => {
 				>
 					<img src={Left} alt="download" width={20} height={20} />
 					<p className="text-[#18181B] text-[14px] font-[600] ">
-						Bosh sahifaga qaytish
+						{t('w153')}
 					</p>
 				</div>
 			</div>

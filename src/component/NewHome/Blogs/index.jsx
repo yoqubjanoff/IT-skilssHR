@@ -98,9 +98,7 @@ const Blogs = () => {
 						/>
 						<p className="TitleBlue">{t('w20')}</p>
 						<p className="DescBlue">
-							Lorem ipsum dolor sit amet consectetur. Viverra lacinia sed
-							praesent pharetra quisque consectetur tellus elit. Suspendisse
-							ultrices vitae at platea. Euismod pretium sit est etiam.
+						{t('w46')}
 						</p>
 						<AntdButton
 							style={{ width: '133px' }}

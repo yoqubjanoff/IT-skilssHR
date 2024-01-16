@@ -16,6 +16,7 @@ import { uploadFileHr } from '../../../services/fileUpload';
 import { Input } from 'antd';
 import { Button, Toast } from '../../generics';
 import Link from '../../../assets/icons/link-test.svg';
+import { useTranslation } from 'react-i18next';
 
 const HrProfile = ({ hrData, setHrData }) => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
@@ -23,6 +24,8 @@ const HrProfile = ({ hrData, setHrData }) => {
 	const [loading, setLoading] = useState(false);
 	const inputRef = useRef(null);
 	const inputRef2 = useRef(null);
+	const { t, i18n } = useTranslation();
+
 	const UploadImage = () => {
 		inputRef?.current?.click();
 	};
@@ -132,9 +135,9 @@ const HrProfile = ({ hrData, setHrData }) => {
 		if (!data.phone || !data.firstName || !data.regionName) {
 			setError({
 				...error,
-				phone: !data.phone && 'Raqam kiritilmadi',
-				firstName: !data.firstName && 'Ism kiritilmadi',
-				regionName: !data.regionName && 'Joy kiritilmadi',
+				phone: !data.phone && t('w132'),
+				firstName: !data.firstName && t('w150'),
+				regionName: !data.regionName && t('w133'),
 			});
 		} else {
 			return callback();
@@ -150,12 +153,12 @@ const HrProfile = ({ hrData, setHrData }) => {
 		) {
 			setErrorCompany({
 				...errorCompany,
-				companyName: !dataCompany.companyName && 'Kompaniya nomi kiritilmadi',
+				companyName: !dataCompany.companyName && t('w136'),
 				companyEmail:
-					!dataCompany.companyEmail && 'Kompaniya raqami kiritilmadi',
-				companyPhone: !dataCompany.companyPhone && 'Raqam kiritilmadi',
-				companyAddress: !dataCompany.companyAddress && 'Address kiritilmadi',
-				companySite: !dataCompany.companySite && 'Email kiritilmadi',
+					!dataCompany.companyEmail && t('w136'),
+				companyPhone: !dataCompany.companyPhone && t('w132'),
+				companyAddress: !dataCompany.companyAddress && t('w139'),
+				companySite: !dataCompany.companySite &&  t('w138'),
 			});
 		} else {
 			return callback();
@@ -178,7 +181,7 @@ const HrProfile = ({ hrData, setHrData }) => {
 			handleCancel2();
 			Toast({
 				type: 'success',
-				message: 'Tahrirlandi !',
+				message: `${t('w155')} !`,
 			});
 			getMe();
 		} catch (error) {
@@ -199,7 +202,7 @@ const HrProfile = ({ hrData, setHrData }) => {
 			handleCancel();
 			Toast({
 				type: 'success',
-				message: 'Tahrirlandi !',
+				message: `${t('w155')} !`,
 			});
 			getMe();
 		} catch (error) {
@@ -243,7 +246,7 @@ const HrProfile = ({ hrData, setHrData }) => {
 				onCancel={handleCancel}
 				centered
 				maskClosable={false}
-				title="Shaxsiy ma’lumotlar"
+				title={t('w61')}
 				footer={null}
 				className="custom-border-radius-modal"
 				style={{ width: '680px' }}
@@ -285,13 +288,13 @@ const HrProfile = ({ hrData, setHrData }) => {
 						className="text-[#2563EB] text-[16px] font-[600] hover:underline cursor-pointer"
 						onClick={UploadImage}
 					>
-						Yuklash
+						{t('w62')}
 					</p>
 				</div>
 
 				<div className="w-full flex gap-[20px] mb-[20px]">
 					<div className="w-full flex flex-col ">
-						<p className="text-[#71717A] text-[16px] font-[500]">Ism</p>
+						<p className="text-[#71717A] text-[16px] font-[500]">{t('w63')}</p>
 						<Input
 							onChange={onChangeFunction}
 							style={{ height: '52px', borderRadius: '12px' }}
@@ -308,7 +311,7 @@ const HrProfile = ({ hrData, setHrData }) => {
 
 				<div className="w-full flex gap-[20px] mb-[20px] ">
 					<div className=" w-full flex flex-col gap-[5px]">
-						<p className="text-[#71717A] text-[16px] font-[500]">Raqam</p>
+						<p className="text-[#71717A] text-[16px] font-[500]">{t('w64')}</p>
 						<Input
 							onChange={onChangeFunction}
 							style={{ height: '52px', borderRadius: '12px' }}
@@ -332,7 +335,7 @@ const HrProfile = ({ hrData, setHrData }) => {
 					</div>
 				</div>
 				<div className="w-full flex flex-col mb-[24px] gap-[5px]">
-					<p className="text-[#71717A] text-[16px] font-[500]">Joylashuv</p>
+					<p className="text-[#71717A] text-[16px] font-[500]">{t('w66')}</p>
 					<Input
 						onChange={onChangeFunction}
 						style={{ height: '52px', borderRadius: '12px' }}
@@ -346,7 +349,7 @@ const HrProfile = ({ hrData, setHrData }) => {
 					)}
 				</div>
 				<div className="w-full flex flex-col mb-[24px] gap-[5px]">
-					<p className="text-[#71717A] text-[16px] font-[500]">Kasb</p>
+					<p className="text-[#71717A] text-[16px] font-[500]">{t('w67')}</p>
 					<Input
 						onChange={onChangeFunction}
 						style={{ height: '52px', borderRadius: '12px' }}
@@ -370,7 +373,7 @@ const HrProfile = ({ hrData, setHrData }) => {
 						onClick={() => setIsModalOpen(false)}
 					>
 						<p className="text-[#17171B] text-[16px] font-[600]">
-							Bekor qilish
+							{t('w68')}
 						</p>
 					</Button>
 					<Button
@@ -383,7 +386,7 @@ const HrProfile = ({ hrData, setHrData }) => {
 						margin={'16px 0 0 0'}
 						onClick={submitFunction}
 					>
-						<p className="text-[#fff] text-[16px] font-[600]">Saqlash</p>
+						<p className="text-[#fff] text-[16px] font-[600]">{t('w69')}</p>
 					</Button>
 				</div>
 			</AndModal>
@@ -435,14 +438,14 @@ const HrProfile = ({ hrData, setHrData }) => {
 						className="text-[#2563EB] text-[16px] font-[600] hover:underline cursor-pointer"
 						onClick={UploadImage2}
 					>
-						Yuklash
+						{t('w62')}
 					</p>
 				</div>
 
 				<div className="w-full flex gap-[20px] mb-[20px]">
 					<div className="w-full flex flex-col ">
 						<p className="text-[#71717A] text-[16px] font-[500]">
-							Kompaniya nomi
+							{t('w72')}
 						</p>
 						<Input
 							onChange={onChangeFunctionCompany}
@@ -460,7 +463,7 @@ const HrProfile = ({ hrData, setHrData }) => {
 
 				<div className="w-full flex gap-[20px] mb-[20px] ">
 					<div className=" w-full flex flex-col gap-[5px]">
-						<p className="text-[#71717A] text-[16px] font-[500]">Raqam</p>
+						<p className="text-[#71717A] text-[16px] font-[500]">{t('w64')}</p>
 						<Input
 							onChange={onChangeFunctionCompany}
 							style={{ height: '52px', borderRadius: '12px' }}
@@ -506,7 +509,7 @@ const HrProfile = ({ hrData, setHrData }) => {
 					</div>
 
 					<div className="w-full flex flex-col gap-[5px]">
-						<p className="text-[#71717A] text-[16px] font-[500]">STIR</p>
+						<p className="text-[#71717A] text-[16px] font-[500]">{t('w76')}</p>
 						<Input
 							onChange={onChangeFunctionCompany}
 							style={{ height: '52px', borderRadius: '12px' }}
@@ -516,7 +519,7 @@ const HrProfile = ({ hrData, setHrData }) => {
 					</div>
 				</div>
 				<div className="w-full flex flex-col mb-[24px] gap-[5px]">
-					<p className="text-[#71717A] text-[16px] font-[500]">Joylashuv</p>
+					<p className="text-[#71717A] text-[16px] font-[500]">{t('w66')}</p>
 					<Input
 						onChange={onChangeFunctionCompany}
 						style={{ height: '52px', borderRadius: '12px' }}
@@ -531,7 +534,7 @@ const HrProfile = ({ hrData, setHrData }) => {
 				</div>
 				<div className="w-full flex flex-col mb-[24px] gap-[5px]">
 					<p className="text-[#71717A] text-[16px] font-[500]">
-						Kompanya haqida
+						{t('w134')}
 					</p>
 					<Input
 						onChange={onChangeFunctionCompany}
@@ -551,7 +554,7 @@ const HrProfile = ({ hrData, setHrData }) => {
 						onClick={() => setIsModalOpen2(false)}
 					>
 						<p className="text-[#17171B] text-[16px] font-[600]">
-							Bekor qilish
+							{t('w68')}
 						</p>
 					</Button>
 					<Button
@@ -564,7 +567,7 @@ const HrProfile = ({ hrData, setHrData }) => {
 						margin={'16px 0 0 0'}
 						onClick={submitFunctionCompany}
 					>
-						<p className="text-[#fff] text-[16px] font-[600]">Saqlash</p>
+						<p className="text-[#fff] text-[16px] font-[600]">{t('w69')}</p>
 					</Button>
 				</div>
 			</AndModal>
@@ -583,7 +586,7 @@ const HrProfile = ({ hrData, setHrData }) => {
 						className="flex justify-end gap-[10px] cursor-pointer"
 					>
 						<img src={Edit} alt="download" width={20} height={20} />
-						<p className="text-[#18181B] text-[16px] font-[600] ">Tahrirlash</p>
+						<p className="text-[#18181B] text-[16px] font-[600] ">{t('w60')}</p>
 					</div>
 					<div className="w-full h-fit flex justify-between max-[450px]:flex-col max-[450px]:gap-[16px] max-[450px]:items-center">
 						<div className="flex items-center gap-[10px] max-[700px]:flex-col">
@@ -676,7 +679,7 @@ const HrProfile = ({ hrData, setHrData }) => {
 						className="flex justify-end gap-[10px] cursor-pointer"
 					>
 						<img src={Edit} alt="download" width={20} height={20} />
-						<p className="text-[#18181B] text-[16px] font-[600] ">Tahrirlash</p>
+						<p className="text-[#18181B] text-[16px] font-[600] ">{t('w60')}</p>
 					</div>
 
 					<div className="w-full h-fit flex justify-between max-[600px]:flex-col max-[600px]:gap-[20px] max-[600px]:items-center">

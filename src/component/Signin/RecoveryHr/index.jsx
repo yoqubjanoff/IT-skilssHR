@@ -7,8 +7,11 @@ import { useNavigate, useParams } from 'react-router-dom';
 import request from '../../../services/api/hr-request';
 import { Toast } from '../../generics';
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
+import { useTranslation } from 'react-i18next';
+
 
 const Forgot = () => {
+	const { t } = useTranslation();
 	const navigate = useNavigate();
 	const { id } = useParams();
 	const [error, setError] = useState({
@@ -65,9 +68,9 @@ const Forgot = () => {
 		if (!newPassword || !newPasswordConfirmation) {
 			setError({
 				...error,
-				newPassword: !newPassword && 'Password kiritilmadi',
+				newPassword: !newPassword && t('w152'),
 				newPasswordConfirmation:
-					!newPasswordConfirmation && 'Password kiritilmadi',
+					!newPasswordConfirmation && t('w152'),
 			});
 		} else if (newPassword !== newPasswordConfirmation) {
 			setError({
@@ -109,7 +112,7 @@ const Forgot = () => {
 					<div className="flex flex-col gap-[10px]">
 						<p className="text-[#52525B] text-[16px] font-[600]">Parol</p>
 						<Input.Password
-							placeholder="Parolingizni kiriting"
+							placeholder={t('w89')}
 							style={{
 								height: '52px',
 								borderRadius: '12px',
@@ -129,10 +132,11 @@ const Forgot = () => {
 					</div>
 					<div className="flex flex-col gap-[10px]">
 						<p className="text-[#52525B] text-[16px] font-[600]">
-							Parolni tasdiqlang
+						{t('w92')}
+
 						</p>
 						<Input.Password
-							placeholder="Parolingizni kiriting"
+							placeholder={t('w89')}
 							style={{
 								height: '52px',
 								borderRadius: '12px',

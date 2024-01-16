@@ -27,8 +27,8 @@ const TalentRegister = () => {
 		if (!email || !password) {
 			setError({
 				...error,
-				email: !email && 'Email kiritilmadi',
-				password: !password && 'Password kiritilmadi',
+				email: !email && t('w138'),
+				password: !password && t('w152'),
 			});
 		} else {
 			return callback();
@@ -111,7 +111,7 @@ const TalentRegister = () => {
 				</div>
 				<div className="w-[375px] flex items-center gap-[4px] mb-[24px] max-[400px]:w-[90%]">
 					<div className="h-[1px] w-full bg-[#D4D4D8]"></div>
-					<p className="text-[#18181B] text-[16px] font-[500]"> Yoki</p>
+					<p className="text-[#18181B] text-[16px] font-[500]"> {t('w41')}</p>
 					<div className="h-[1px] w-full bg-[#D4D4D8]"></div>
 				</div>
 
@@ -133,7 +133,7 @@ const TalentRegister = () => {
 					<p className="text-[#18181B] text-[16px] font-[500]">Parol</p>
 
 					<Input.Password
-						placeholder="Parolingizni kiriting"
+						placeholder={t('w89')}
 						style={{
 							height: '52px',
 							borderRadius: '12px',
@@ -176,7 +176,7 @@ const TalentRegister = () => {
 						htmlType="submit"
 						onClick={submitFunction}
 					>
-						<p className="text-[#fff] text-[16px] font-[600]">Kirish</p>
+						<p className="text-[#fff] text-[16px] font-[600]"> {t('w37')}</p>
 					</Button>
 				</div>
 				<div className="w-full flex justify-center gap-[10px] my-[15px]">
@@ -187,7 +187,7 @@ const TalentRegister = () => {
 						onClick={() => navigate('/register-talent')}
 						className="text-blue-500 text-[14px] font-[600]  cursor-pointer hover:underline"
 					>
-						Ro’yxatdan o’tish
+						{t('w100')}
 					</p>
 				</div>
 			</div>

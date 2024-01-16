@@ -72,7 +72,8 @@ const Skills = () => {
 						onClick={() => setIsModalOpen(false)}
 					>
 						<p className="text-[#17171B] text-[16px] font-[600]">
-							Bekor qilish
+						{t('w68')}
+
 						</p>
 					</Button>
 					<Button
@@ -85,7 +86,7 @@ const Skills = () => {
 						margin={'16px 0 0 0'}
 						// onClick={submitFunction}
 					>
-						<p className="text-[#fff] text-[16px] font-[600]">Saqlash</p>
+						<p className="text-[#fff] text-[16px] font-[600]">{t('w69')}</p>
 					</Button>
 				</div>
 			</AndModal>

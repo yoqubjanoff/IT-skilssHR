@@ -26,7 +26,14 @@ import Uz from '../../../assets/icons/uzFlag.svg';
 import En from '../../../assets/icons/enFlag.svg';
 import Ru from '../../../assets/icons/ruFlag.svg';
 import { DownloadResume } from '../../../services/downloadResume/index';
+import { useTranslation } from 'react-i18next';
+
+
+
+
+
 const TalentProfile = () => {
+	const { t } = useTranslation();
 	const navigate = useNavigate();
 	const [openDownload, setOpenDownload] = useState(false);
 	const showModalDownload = () => {
@@ -71,7 +78,7 @@ const TalentProfile = () => {
 				<div className="flex flex-col gap-[16px]">
 					<div className="flex gap-[10px]">
 						<p className="text-[#18181B] text-[14px] font-[600] ">
-							CV ni PDF shaklida yuklash
+							{t('w141')}
 						</p>
 						<img
 							src={download}
@@ -167,7 +174,8 @@ const TalentProfile = () => {
 							onClick={handleCancelDownload}
 						>
 							<p className="text-[#17171B] text-[16px] font-[600]">
-								Bekor qilish
+							{t('w68')}
+
 							</p>
 						</Button>
 						<Button
@@ -179,7 +187,7 @@ const TalentProfile = () => {
 							bgcolor={'#2563EB'}
 							onClick={getFile}
 						>
-							<p className="text-[#fff] text-[16px] font-[600]">Yuklab olish</p>
+							<p className="text-[#fff] text-[16px] font-[600]">{t('w62')}</p>
 						</Button>
 					</div>
 				</div>
@@ -195,7 +203,7 @@ const TalentProfile = () => {
 						onClick={() => navigate('/explore')}
 					>
 						<img src={Left} alt="download" width={20} height={20} />
-						<p className="text-[#18181B] text-[14px] font-[600] ">Orqaga</p>
+						<p className="text-[#18181B] text-[14px] font-[600] ">{t('w131')}</p>
 					</div>
 
 					<div className="flex gap-[10px]">
@@ -213,7 +221,7 @@ const TalentProfile = () => {
 						"
 						>
 							<p className="text-[#18181B] text-[14px] font-[600] ">
-								CV ni PDF shaklida yuklash
+								{t('w141')}
 							</p>
 							<img src={download} alt="download" width={20} height={20} />
 						</div>

@@ -8,7 +8,14 @@ import { Input } from 'antd';
 import { Button } from '../../generics';
 import { connect } from 'react-redux';
 import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+
+
+
+
+
 const About = ({ data, getMeFunc }) => {
+	const { t, i18n } = useTranslation();
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const [aboutMe, setAboutMe] = useState(data?.aboutMe || '');
 	const { TextArea } = Input;
@@ -50,7 +57,7 @@ const About = ({ data, getMeFunc }) => {
 				onCancel={handleCancel}
 				centered
 				maskClosable={false}
-				title="Men haqimda"
+				title={t('w140')}
 				footer={null}
 				className="custom-border-radius-modal"
 				style={{ width: '680px' }}
@@ -73,7 +80,8 @@ const About = ({ data, getMeFunc }) => {
 						onClick={() => setIsModalOpen(false)}
 					>
 						<p className="text-[#17171B] text-[16px] font-[600]">
-							Bekor qilish
+						{t('w68')}
+
 						</p>
 					</Button>
 					<Button
@@ -86,13 +94,13 @@ const About = ({ data, getMeFunc }) => {
 						margin={'16px 0 0 0'}
 						onClick={editContact}
 					>
-						<p className="text-[#fff] text-[16px] font-[600]">Saqlash</p>
+						<p className="text-[#fff] text-[16px] font-[600]">{t('w69')}</p>
 					</Button>
 				</div>
 			</AndModal>
 
 			<div className="w-full flex justify-between items-top">
-				<p className="text-[#18181B] text-[16px] font-[600] ">Men haqimda</p>
+				<p className="text-[#18181B] text-[16px] font-[600] ">{t('w140')}</p>
 
 				{data?.aboutMe ? (
 					<img

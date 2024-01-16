@@ -189,7 +189,7 @@ const Experence = ({ getMeFunc }) => {
 				onCancel={handleCancel}
 				centered
 				maskClosable={false}
-				title="Tajriba"
+				title={t('w144')}
 				footer={null}
 				className="custom-border-radius-modal"
 				style={{ width: '680px' }}
@@ -324,7 +324,7 @@ const Experence = ({ getMeFunc }) => {
 				</div>
 
 				<div className=" w-full flex flex-col mb-[24px] gap-[5px]">
-					<p className="text-[#71717A] text-[16px] font-[500]">Ta’rif</p>
+					<p className="text-[#71717A] text-[16px] font-[500]">{t('w162')}</p>
 					<TextArea
 						rows={6}
 						placeholder="Tekstni kiriting"
@@ -345,7 +345,8 @@ const Experence = ({ getMeFunc }) => {
 						onClick={() => setIsModalOpen(false)}
 					>
 						<p className="text-[#17171B] text-[16px] font-[600]">
-							Bekor qilish
+							{t('w68')}
+							
 						</p>
 					</Button>
 					<Button
@@ -358,7 +359,7 @@ const Experence = ({ getMeFunc }) => {
 						margin={'16px 0 0 0'}
 						onClick={submitFunction}
 					>
-						<p className="text-[#fff] text-[16px] font-[600]">Saqlash</p>
+						<p className="text-[#fff] text-[16px] font-[600]">{t('w69')}</p>
 					</Button>
 				</div>
 			</AndModal>
@@ -373,7 +374,7 @@ const Experence = ({ getMeFunc }) => {
 				closeIcon={null}
 			>
 				<p className="text-[#17171B] text-[24px] font-[600] text-center mb-[20px]">
-					Ishonchingiz komilmi?
+				{t('w129')}
 				</p>
 
 				<div className="w-full flex justify-end gap-[16px] max-[500px]:flex-col max-[500px]:items-center">
@@ -387,7 +388,8 @@ const Experence = ({ getMeFunc }) => {
 						onClick={handleCancelDelete}
 					>
 						<p className="text-[#17171B] text-[16px] font-[600]">
-							Bekor qilish
+							{t('w68')}
+							
 						</p>
 					</Button>
 					<Button
@@ -406,7 +408,7 @@ const Experence = ({ getMeFunc }) => {
 				</div>
 			</AndModalDelete>
 			<div className="w-full flex justify-between items-center">
-				<p className="text-[#18181B] text-[16px] font-[600] ">Tajriba</p>
+				<p className="text-[#18181B] text-[16px] font-[600] ">{t('w144')}</p>
 
 				<img
 					src={Add}

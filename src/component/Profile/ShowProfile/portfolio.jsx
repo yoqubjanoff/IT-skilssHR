@@ -1,13 +1,18 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+
+
+
 
 const Portfolio = ({ data }) => {
+	const { t, i18n } = useTranslation();
 	const { successfullProjects } = data;
 	const navigate = useNavigate();
 	return (
 		<div className="w-full min-h-[64px] bg-white p-[20px] border border-solid border-1 border-[#E3E3E7] rounded-[16px] ">
 			<div className="w-full flex justify-between items-center">
-				<p className="text-[#18181B] text-[16px] font-[600] "> Portfolio</p>
+				<p className="text-[#18181B] text-[16px] font-[600] "> {t('w147')}</p>
 			</div>
 			{successfullProjects?.length ? (
 				<div className="w-full flex flex-wrap gap-[20px] mt-[20px]">

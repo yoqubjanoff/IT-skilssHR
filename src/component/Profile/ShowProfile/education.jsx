@@ -1,13 +1,16 @@
 import React from 'react';
 import Work from '../../../assets/icons/round-home-work.svg';
 import moment from 'moment';
+import { useTranslation } from 'react-i18next';
+
 
 const Education = ({ data }) => {
+	const { t, i18n } = useTranslation();
 	const { educationUserTalents } = data;
 	return (
 		<div className="w-full min-h-[64px] flex flex-col bg-white p-[20px] border border-solid border-1 border-[#E3E3E7] rounded-[16px] ">
 			<div className="w-full flex  justify-between items-center">
-				<p className="text-[#18181B] text-[16px] font-[600] ">Ta’lim</p>
+				<p className="text-[#18181B] text-[16px] font-[600] ">{t('w143')}</p>
 			</div>
 
 			{educationUserTalents?.map((v, i) => (

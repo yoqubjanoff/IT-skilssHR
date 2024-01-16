@@ -40,7 +40,7 @@ const VerifyTalent = () => {
 						onClick={() => navigate('/')}
 					>
 						<p className="text-[#fff] text-[16px] font-[600]">
-							Bosh sahifaga qaytish
+						{t('w153')}
 						</p>
 					</Button>
 				</div>

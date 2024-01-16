@@ -12,8 +12,14 @@ import Upload from '../../../assets/icons/upload-award.svg';
 // import Edit from '../../../assets/icons/edit.svg';
 import Sertifikat from '../../../assets/img/sertifikat.png';
 import { uploadFileTalent } from '../../../services/fileUpload';
+import { useTranslation } from 'react-i18next';
+
+
+
+
 
 const Award = () => {
+	const { t, i18n } = useTranslation();
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const { TextArea } = Input;
 	const inputRef = useRef(null);
@@ -90,10 +96,10 @@ const Award = () => {
 		) {
 			setError({
 				...error,
-				caption: !editData.caption && 'Nom kiritilmadi',
-				link: !editData.link && 'Link kiritilmadi',
-				proofUrl: !editData.proofUrl && 'Rasm kiritilmadi',
-				description: !editData.description && 'Tarif kiritilmadi',
+				caption: !editData.caption && t('w156'),
+				link: !editData.link && t('w157'),
+				proofUrl: !editData.proofUrl && t('w158'),
+				description: !editData.description && t('w159'),
 			});
 		} else {
 			return callback();
@@ -151,7 +157,7 @@ const Award = () => {
 				onCancel={handleCancel}
 				centered
 				maskClosable={false}
-				title="Mukofotlar/Sertifikatlar"
+				title={t('w145')}
 				footer={null}
 				className="custom-border-radius-modal"
 				style={{ width: '680px' }}
@@ -222,7 +228,7 @@ const Award = () => {
 							>
 								<img src={Upload} alt="download" width={24} height={24} />
 								<p className="text-[#17171B] text-[16px] font-[400] ">
-									Yuklash
+								{t('w62')}
 								</p>
 								<input
 									type="file"
@@ -270,7 +276,7 @@ const Award = () => {
 				</div>
 
 				<div className=" w-full flex flex-col mb-[24px] gap-[5px]">
-					<p className="text-[#71717A] text-[16px] font-[500]">Ta’rif</p>
+					<p className="text-[#71717A] text-[16px] font-[500]">{t('w162')}</p>
 					<TextArea
 						rows={6}
 						placeholder="Tekstni kiriting"
@@ -296,7 +302,8 @@ const Award = () => {
 						onClick={() => setIsModalOpen(false)}
 					>
 						<p className="text-[#17171B] text-[16px] font-[600]">
-							Bekor qilish
+							{t('w68')}
+							
 						</p>
 					</Button>
 					<Button
@@ -309,7 +316,7 @@ const Award = () => {
 						margin={'16px 0 0 0'}
 						onClick={submitFunction}
 					>
-						<p className="text-[#fff] text-[16px] font-[600]">Saqlash</p>
+						<p className="text-[#fff] text-[16px] font-[600]">{t('w69')}</p>
 					</Button>
 				</div>
 			</AndModal>
@@ -324,7 +331,7 @@ const Award = () => {
 				closeIcon={null}
 			>
 				<p className="text-[#17171B] text-[24px] font-[600] text-center mb-[20px]">
-					Ishonchingiz komilmi?
+					Isho{t('w129')}
 				</p>
 
 				<div className="w-full flex justify-end gap-[16px] max-[500px]:flex-col max-[500px]:items-center">
@@ -338,7 +345,8 @@ const Award = () => {
 						onClick={handleCancelDelete}
 					>
 						<p className="text-[#17171B] text-[16px] font-[600]">
-							Bekor qilish
+							{t('w68')}
+							
 						</p>
 					</Button>
 					<Button
@@ -358,7 +366,7 @@ const Award = () => {
 			</AndModalDelete>
 			<div className="w-full flex justify-between items-center">
 				<p className="text-[#18181B] text-[16px] font-[600] ">
-					Mukofotlar/Sertifikatlar
+				{t('w145')}
 				</p>
 
 				<img

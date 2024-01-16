@@ -15,7 +15,10 @@ import { AndModal, AntSelect } from '../Talent/style';
 import { uploadFileTalent } from '../../../services/fileUpload';
 import Example from '../../../assets/icons/example-mountain.svg';
 import Upload from '../../../assets/icons/upload-award.svg';
+import { useTranslation } from 'react-i18next';
+
 const TalentProfile = () => {
+	const { t } = useTranslation();
 	const navigate = useNavigate();
 	let { id } = useParams();
 	const inputRef = useRef(null);
@@ -90,10 +93,10 @@ const TalentProfile = () => {
 		) {
 			setError({
 				...error,
-				projectName: !data.projectName && 'Loyiha nomi kiritilmadi',
-				projectUrl: !data.projectUrl && 'Link kiritilmadi',
-				photoUrl: !data.photoUrl && 'Rasm kiritilmadi',
-				description: !data.description && 'Ta’rif kiritilmadi',
+				projectName: !data.projectName && t('w156'),
+				projectUrl: !data.projectUrl &&  t('w157'),
+				photoUrl: !data.photoUrl && t('w158'),
+				description: !data.description && t('w162'),
 			});
 		} else {
 			return callback();
@@ -113,7 +116,7 @@ const TalentProfile = () => {
 			handleCancel();
 			Toast({
 				type: 'success',
-				message: 'Tahrirlandi !',
+				message:`${t('w155')} !`,
 			});
 			getPortfolio();
 		} catch (error) {
@@ -197,17 +200,17 @@ const TalentProfile = () => {
 						onCancel={handleCancel}
 						centered
 						maskClosable={false}
-						title="Portfolio"
+						title={t('w147')}
 						footer={null}
 						className="custom-border-radius-modal"
 						style={{ width: '680px' }}
 					>
 						<div className=" w-full flex flex-col mb-[24px] gap-[5px]">
 							<p className="text-[#71717A] text-[16px] font-[500]">
-								Loyiha nomi
+							{t('w160')}
 							</p>
 							<Input
-								placeholder="Loyiha nomini kiriting"
+								placeholder={t('w161')}
 								style={{ height: '52px', borderRadius: '12px' }}
 								name="projectName"
 								value={data?.projectName}
@@ -221,7 +224,7 @@ const TalentProfile = () => {
 						</div>
 
 						<div className=" w-full flex flex-col mb-[24px] gap-[5px]">
-							<p className="text-[#71717A] text-[16px] font-[500]">Ta’rif</p>
+							<p className="text-[#71717A] text-[16px] font-[500]">{t('w162')}</p>
 							<TextArea
 								rows={6}
 								placeholder="Tekstni kiriting"
@@ -237,7 +240,7 @@ const TalentProfile = () => {
 							)}
 						</div>
 						<div className=" w-full flex flex-col mb-[24px] gap-[5px]">
-							<p className="text-[#71717A] text-[16px] font-[500]">Taglar</p>
+							<p className="text-[#71717A] text-[16px] font-[500]">{t('w163')}</p>
 							<AntSelect
 								mode="multiple"
 								placeholder="Teglarni kiriting"
@@ -291,7 +294,7 @@ const TalentProfile = () => {
 											/>
 											<img src={Upload} alt="download" width={24} height={24} />
 											<p className="text-[#17171B] text-[16px] font-[400] ">
-												Yuklash
+												{t('w62')}
 											</p>
 										</div>
 									</div>
@@ -346,7 +349,8 @@ const TalentProfile = () => {
 								onClick={handleCancel}
 							>
 								<p className="text-[#17171B] text-[16px] font-[600]">
-									Bekor qilish
+								{t('w68')}
+
 								</p>
 							</Button>
 							<Button
@@ -359,7 +363,7 @@ const TalentProfile = () => {
 								margin={'16px 0 0 0'}
 								onClick={submitFunction}
 							>
-								<p className="text-[#fff] text-[16px] font-[600]">Saqlash</p>
+								<p className="text-[#fff] text-[16px] font-[600]">{t('w69')}</p>
 							</Button>
 						</div>
 					</AndModal>
@@ -371,7 +375,9 @@ const TalentProfile = () => {
 							onClick={() => navigate('/talent-profile')}
 						>
 							<img src={Left} alt="download" width={20} height={20} />
-							<p className="text-[#18181B] text-[14px] font-[600] ">Orqaga</p>
+							<p className="text-[#18181B] text-[14px] font-[600] ">
+								{t('w131')}
+							</p>
 						</div>
 
 						<div className="flex gap-[10px]">
@@ -446,7 +452,7 @@ const TalentProfile = () => {
 						"
 						>
 							<p className="text-[#18181B] text-[18px] font-[600] mb-[30px]">
-								Rasmlar
+							{t('w164')}
 							</p>
 							<div className="flex gap-[20px] flex-wrap justify-center">
 								{portfolio?.photoUrl && (

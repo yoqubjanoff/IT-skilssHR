@@ -33,9 +33,9 @@ const TalentRegister = ({ sentEmailAction }) => {
 		if (!firstName || !email || !password) {
 			setError({
 				...error,
-				firstName: !firstName && 'Ism kiritilmadi',
-				email: !email && 'Email kiritilmadi',
-				password: !password && 'Password kiritilmadi',
+				firstName: !firstName && t('w150'),
+				email: !email && t('w138'),
+				password: !password && t('w152'),
 			});
 		} else if (password.length < 8) {
 			setError({
@@ -130,7 +130,7 @@ const TalentRegister = ({ sentEmailAction }) => {
 		<div className="w-full h-screen flex max-[768px]:justify-center">
 			<div className="w-[50%]  flex flex-col items-center justify-center max-[768px]:w-[100%] p-[10px]">
 				<p className=" text-[#18181B] text-center text-[28px] font-[700] ">
-					Ro’yxatdan o’tish
+					{t('w100')}
 				</p>
 				{/* <FacebookLogin
 					appId="342782235119231"
@@ -139,11 +139,8 @@ const TalentRegister = ({ sentEmailAction }) => {
 					onClick={componentClicked}
 					callback={responseFacebook}
 				/> */}
-				<p className="leading-[35px] text-center">
-					Quyidagi tezkor roʻyxatdan oʻtish{' '}
-				</p>
+				<p className="leading-[35px] text-center w-[350px]">{t('w101')}</p>
 
-				<p className="mb-[32px] text-center">opsiyalaridan foydalaning</p>
 				<div className="flex gap-[16px] mb-[24px] max-[400px]:flex-col items-center">
 					<div
 						className="flex h-[44px] px-[16px] justify-center items-center gap-[5px] border border-solid
@@ -178,11 +175,11 @@ const TalentRegister = ({ sentEmailAction }) => {
 				</div>
 				<div className="w-[375px] flex items-center gap-[4px] mb-[24px] max-[400px]:w-[90%]">
 					<div className="h-[1px] w-full bg-[#D4D4D8]"></div>
-					<p className="text-[#18181B] text-[16px] font-[500]"> Yoki</p>
+					<p className="text-[#18181B] text-[16px] font-[500]">{t('w41')}</p>
 					<div className="h-[1px] w-full bg-[#D4D4D8]"></div>
 				</div>
 				<div className="w-[375px] flex flex-col gap-[6px] mb-[16px] max-[400px]:w-[90%]">
-					<p className="text-[#18181B] text-[16px] font-[500]"> Ism</p>
+					<p className="text-[#18181B] text-[16px] font-[500]"> {t('w63')}</p>
 
 					<Input
 						placeholder="Ismingizni kiriting"
@@ -215,7 +212,7 @@ const TalentRegister = ({ sentEmailAction }) => {
 					<p className="text-[#18181B] text-[16px] font-[500]">Parol</p>
 
 					<Input.Password
-						placeholder="Parolingizni kiriting"
+						placeholder={t('w89')}
 						style={{
 							height: '52px',
 							borderRadius: '12px',
@@ -244,20 +241,16 @@ const TalentRegister = ({ sentEmailAction }) => {
 						htmlType="submit"
 						onClick={submitFunction}
 					>
-						<p className="text-[#fff] text-[16px] font-[600]">
-							Ro’yxatdan o’tish
-						</p>
+						<p className="text-[#fff] text-[16px] font-[600]">{t('w100')}</p>
 					</Button>
 				</div>
 				<div className="w-full flex justify-center gap-[10px] my-[15px]">
-					<p className="text-gray-700 text-[14px] font-[600]">
-						Akkountingiz bormi
-					</p>
+					<p className="text-gray-700 text-[14px] font-[600]">{t('w112')}</p>
 					<p
 						onClick={() => navigate('/signin-talent')}
 						className="text-blue-500 text-[14px] font-[600]  cursor-pointer hover:underline"
 					>
-						Kirish
+						{t('w37')}
 					</p>
 				</div>
 			</div>

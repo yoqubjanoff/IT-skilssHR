@@ -4,9 +4,12 @@ import { Button } from '../../generics';
 import CloseIcon from '../../../assets/icons/x close.svg';
 import LockImg from '../../../assets/img/lock.png';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+
 
 const Forgot = () => {
 	const navigate = useNavigate();
+	const { t, i18n } = useTranslation();
 	return (
 		<div
 			className="w-full h-screen flex items-center justify-center"
@@ -54,7 +57,7 @@ const Forgot = () => {
 					htmlType="submit"
 					onClick={() => navigate('/talent-profile')}
 				>
-					<p className="text-[#fff] text-[16px] font-[600]">Kirish</p>
+					<p className="text-[#fff] text-[16px] font-[600]"> {t('w37')}</p>
 				</Button>
 			</div>
 		</div>

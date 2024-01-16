@@ -213,7 +213,7 @@ const Explore = () => {
 	const content = (
 		<div className="flex flex-col gap-[16px] w-[340px] h-[552px] max-[450px]:w-[270px]">
 			<div className=" w-full flex flex-col  gap-[5px]">
-				<p className="text-[#71717A] text-[16px] font-[500]">Yo’nalish</p>
+				<p className="text-[#71717A] text-[16px] font-[500]">{t('w120')}</p>
 
 				<AntSelectFilter
 					options={optionsDirection}
@@ -234,7 +234,7 @@ const Explore = () => {
 			</div>
 			<div className=" w-full flex flex-col  gap-[5px]">
 				<p className="text-[#71717A] text-[16px] font-[500]">
-					Ichki yo’nalish bo’yicha
+					{t('w121')}
 				</p>
 				<AntSelectFilter
 					style={{ height: '52px' }}
@@ -247,7 +247,7 @@ const Explore = () => {
 			</div>
 			<div className=" w-full flex flex-col  gap-[5px]">
 				<p className="text-[#71717A] text-[16px] font-[500]">
-					Joylashuv bo’yicha
+				{t('w122')}
 				</p>
 				<AntSelectFilter
 					onChange={(e, opt) => {
@@ -265,7 +265,7 @@ const Explore = () => {
 				/>
 			</div>
 			<div className=" w-full flex flex-col  gap-[5px]">
-				<p className="text-[#71717A] text-[16px] font-[500]">Til bo’yicha</p>
+				<p className="text-[#71717A] text-[16px] font-[500]">{t('w123')}</p>
 				<AntSelectFilter
 					style={{ height: '52px' }}
 					onChange={(e, opt) => {
@@ -276,7 +276,7 @@ const Explore = () => {
 				/>
 			</div>
 			<div className=" w-full flex flex-col mb-[10px] gap-[5px]">
-				<p className="text-[#71717A] text-[16px] font-[500]">Masimum maosh</p>
+				<p className="text-[#71717A] text-[16px] font-[500]">{t('w124')}</p>
 				<AntSelectFilter
 					options={salaryOptions}
 					value={salaryCaption?.label}
@@ -296,7 +296,7 @@ const Explore = () => {
 					width={'fit-content'}
 					onClick={clearFunc}
 				>
-					<p className="text-[#fff] text-[14px] font-[600]">Tozalash</p>
+					<p className="text-[#fff] text-[14px] font-[600]">{t('w125')}</p>
 				</Button>
 				<Button
 					type="default"
@@ -307,7 +307,7 @@ const Explore = () => {
 					bgcolor={'#2563EB'}
 					onClick={SaveFunc}
 				>
-					<p className="text-[#fff] text-[14px] font-[600]">Saqlash</p>
+					<p className="text-[#fff] text-[14px] font-[600]">{t('w69')}</p>
 				</Button>
 			</div>
 		</div>
@@ -333,7 +333,7 @@ const Explore = () => {
 		<Wrapper>
 			<Navbar />
 			<p className="font-[Vollkorn] text-[#18181B] text-[34px] font-[600] max-[450px]:text-[22px] mt-[120px] ">
-				Mutaxassislarni toping
+				{t('w119')}
 			</p>
 			<Wrapper.SearchBox>
 				<img
@@ -434,7 +434,7 @@ const Explore = () => {
 						className="w-fit flex items-center justify-center px-[18px] py-[10px] border border-solid border-1
 					 border-[#18181B4D] border-opacity-40 rounded-[12px] cursor-pointer active:scale-[1.01]"
 					>
-						<p className="text-[#18181B] text-[18px] font-[500]">Ko’proq</p>
+						<p className="text-[#18181B] text-[18px] font-[500]">{t('w126')}</p>
 					</div>
 				)}
 			</div>

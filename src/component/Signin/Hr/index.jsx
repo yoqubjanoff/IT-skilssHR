@@ -11,7 +11,10 @@ import Img from '../../../assets/img/regImg.png';
 import { useNavigate } from 'react-router-dom';
 import request from '../../../services/api/hr-request';
 import { Toast } from '../../generics';
+import { useTranslation } from 'react-i18next';
+
 const TalentRegister = () => {
+	const { t, i18n } = useTranslation();
 	const navigate = useNavigate();
 
 	const [state, setState] = useState({
@@ -31,9 +34,9 @@ const TalentRegister = () => {
 		if (!email || !password) {
 			setError({
 				...error,
-				name: !name && 'Ism kiritilmadi',
-				email: !email && 'Email kiritilmadi',
-				password: !password && 'Password kiritilmadi',
+				name: !name && t('w150'),
+				email: !email && t('w138'),
+				password: !password && t('w152'),
 			});
 		} else if (password.length < 8) {
 			setError({
@@ -106,8 +109,7 @@ const TalentRegister = () => {
 					border-[#D4D4D8] shadow-[0px 1px 2px 0px rgba(15, 15, 16, 0.05);] rounded-[12px] cursor-pointer w-[116px]
 					max-[400px]:w-[270px]"
 					>
-												<img src={OneID} height={20} width={64} />
-
+						<img src={OneID} height={20} width={64} />
 					</div>
 
 					<div
@@ -121,7 +123,7 @@ const TalentRegister = () => {
 				</div>
 				<div className="w-[375px] flex items-center gap-[4px] mb-[24px] max-[400px]:w-[90%]">
 					<div className="h-[1px] w-full bg-[#D4D4D8]"></div>
-					<p className="text-[#18181B] text-[16px] font-[500]"> Yoki</p>
+					<p className="text-[#18181B] text-[16px] font-[500]"> {t('w41')}</p>
 					<div className="h-[1px] w-full bg-[#D4D4D8]"></div>
 				</div>
 
@@ -143,7 +145,7 @@ const TalentRegister = () => {
 					<p className="text-[#18181B] text-[16px] font-[500]">Parol</p>
 
 					<Input.Password
-						placeholder="Parolingizni kiriting"
+						placeholder={t('w89')}
 						style={{
 							height: '52px',
 							borderRadius: '12px',
@@ -186,7 +188,7 @@ const TalentRegister = () => {
 						htmlType="submit"
 						onClick={submitFunction}
 					>
-						<p className="text-[#fff] text-[16px] font-[600]">Kirish</p>
+						<p className="text-[#fff] text-[16px] font-[600]"> {t('w37')}</p>
 					</Button>
 				</div>
 				<div className="w-full flex justify-center gap-[10px] my-[15px]">
@@ -197,7 +199,7 @@ const TalentRegister = () => {
 						onClick={() => navigate('/register')}
 						className="text-blue-500 text-[14px] font-[600]  cursor-pointer hover:underline"
 					>
-						Ro’yxatdan o’tish
+						{t('w100')}
 					</p>
 				</div>
 			</div>

@@ -138,10 +138,10 @@ const Portfolio = () => {
 		) {
 			setError({
 				...error,
-				projectName: !data.projectName && 'Loyiha nomi kiritilmadi',
-				projectUrl: !data.projectUrl && 'Link kiritilmadi',
-				photoUrl: !data.photoUrl && 'Rasm kiritilmadi',
-				description: !data.description && 'Ta’rif kiritilmadi',
+				projectName: !data.projectName &&  t('w156'),
+				projectUrl: !data.projectUrl && t('w157'),
+				photoUrl: !data.photoUrl && t('w158'),
+				description: !data.description && t('w159'),
 			});
 		} else {
 			return callback();
@@ -210,9 +210,9 @@ const Portfolio = () => {
 				style={{ width: '680px' }}
 			>
 				<div className=" w-full flex flex-col mb-[24px] gap-[5px]">
-					<p className="text-[#71717A] text-[16px] font-[500]">Loyiha nomi</p>
+					<p className="text-[#71717A] text-[16px] font-[500]">{t('w160')}</p>
 					<Input
-						placeholder="Loyiha nomini kiriting"
+						placeholder={t('w161')}
 						style={{ height: '52px', borderRadius: '12px' }}
 						name="projectName"
 						value={data?.projectName}
@@ -226,7 +226,7 @@ const Portfolio = () => {
 				</div>
 
 				<div className=" w-full flex flex-col mb-[24px] gap-[5px]">
-					<p className="text-[#71717A] text-[16px] font-[500]">Ta’rif</p>
+					<p className="text-[#71717A] text-[16px] font-[500]">{t('w162')}</p>
 					<TextArea
 						rows={6}
 						placeholder="Tekstni kiriting"
@@ -242,7 +242,7 @@ const Portfolio = () => {
 					)}
 				</div>
 				<div className=" w-full flex flex-col mb-[24px] gap-[5px]">
-					<p className="text-[#71717A] text-[16px] font-[500]">Taglar</p>
+					<p className="text-[#71717A] text-[16px] font-[500]">{t('w163')}</p>
 					<AntSelect
 						mode="multiple"
 						placeholder="Teglarni kiriting"
@@ -296,7 +296,7 @@ const Portfolio = () => {
 									/>
 									<img src={Upload} alt="download" width={24} height={24} />
 									<p className="text-[#17171B] text-[16px] font-[400] ">
-										Yuklash
+									{t('w62')}
 									</p>
 								</div>
 							</div>
@@ -351,7 +351,8 @@ const Portfolio = () => {
 						onClick={handleCancel}
 					>
 						<p className="text-[#17171B] text-[16px] font-[600]">
-							Bekor qilish
+														{t('w68')}
+
 						</p>
 					</Button>
 					<Button
@@ -364,7 +365,7 @@ const Portfolio = () => {
 						margin={'16px 0 0 0'}
 						onClick={submitFunction}
 					>
-						<p className="text-[#fff] text-[16px] font-[600]">Saqlash</p>
+						<p className="text-[#fff] text-[16px] font-[600]">{t('w69')}</p>
 					</Button>
 				</div>
 			</AndModal>
@@ -379,7 +380,7 @@ const Portfolio = () => {
 				closeIcon={null}
 			>
 				<p className="text-[#17171B] text-[24px] font-[600] text-center mb-[20px]">
-					Ishonchingiz komilmi?
+				{t('w129')}
 				</p>
 
 				<div className="w-full flex justify-end gap-[16px] max-[500px]:flex-col max-[500px]:items-center">
@@ -393,7 +394,8 @@ const Portfolio = () => {
 						onClick={handleCancelDelete}
 					>
 						<p className="text-[#17171B] text-[16px] font-[600]">
-							Bekor qilish
+														{t('w68')}
+
 						</p>
 					</Button>
 					<Button
@@ -412,7 +414,7 @@ const Portfolio = () => {
 				</div>
 			</AndModalDelete>
 			<div className="w-full flex justify-between items-center">
-				<p className="text-[#18181B] text-[16px] font-[600] "> Portfolio</p>
+				<p className="text-[#18181B] text-[16px] font-[600] ">{t('w147')}</p>
 				<img
 					src={Add}
 					alt="download"

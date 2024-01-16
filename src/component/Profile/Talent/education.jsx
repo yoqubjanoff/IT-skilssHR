@@ -8,8 +8,11 @@ import moment from 'moment';
 import request from '../../../services/api';
 import { DeleteIcon } from '../../generics/genericIcons';
 import { connect } from 'react-redux';
+import { useTranslation } from 'react-i18next';
+
 
 const Education = ({ getMeFunc }) => {
+	const { t, i18n } = useTranslation();
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const { TextArea } = Input;
 	const [education, setEducation] = useState([]);
@@ -166,7 +169,7 @@ const Education = ({ getMeFunc }) => {
 				onCancel={handleCancel}
 				centered
 				maskClosable={false}
-				title="Ta’lim"
+				title={t('w143')}
 				footer={null}
 				className="custom-border-radius-modal"
 				style={{ width: '680px' }}
@@ -263,7 +266,7 @@ const Education = ({ getMeFunc }) => {
 				</div>
 
 				<div className=" w-full flex flex-col mb-[24px] gap-[5px]">
-					<p className="text-[#71717A] text-[16px] font-[500]">Ta’rif</p>
+					<p className="text-[#71717A] text-[16px] font-[500]">{t('w162')}</p>
 					<TextArea
 						rows={6}
 						placeholder="Tekstni kiriting"
@@ -284,7 +287,8 @@ const Education = ({ getMeFunc }) => {
 						onClick={() => setIsModalOpen(false)}
 					>
 						<p className="text-[#17171B] text-[16px] font-[600]">
-							Bekor qilish
+							{t('w68')}
+							
 						</p>
 					</Button>
 					<Button
@@ -297,7 +301,7 @@ const Education = ({ getMeFunc }) => {
 						margin={'16px 0 0 0'}
 						onClick={submitFunction}
 					>
-						<p className="text-[#fff] text-[16px] font-[600]">Saqlash</p>
+						<p className="text-[#fff] text-[16px] font-[600]">{t('w69')}</p>
 					</Button>
 				</div>
 			</AndModal>
@@ -312,7 +316,7 @@ const Education = ({ getMeFunc }) => {
 				closeIcon={null}
 			>
 				<p className="text-[#17171B] text-[24px] font-[600] text-center mb-[20px]">
-					Ishonchingiz komilmi?
+					I{t('w129')}
 				</p>
 
 				<div className="w-full flex justify-end gap-[16px] max-[500px]:flex-col max-[500px]:items-center">
@@ -326,7 +330,8 @@ const Education = ({ getMeFunc }) => {
 						onClick={handleCancelDelete}
 					>
 						<p className="text-[#17171B] text-[16px] font-[600]">
-							Bekor qilish
+							{t('w68')}
+							
 						</p>
 					</Button>
 					<Button
@@ -345,7 +350,7 @@ const Education = ({ getMeFunc }) => {
 				</div>
 			</AndModalDelete>
 			<div className="w-full flex  justify-between items-center">
-				<p className="text-[#18181B] text-[16px] font-[600] ">Ta’lim</p>
+				<p className="text-[#18181B] text-[16px] font-[600] ">{t('w143')}</p>
 
 				<img
 					src={Add}

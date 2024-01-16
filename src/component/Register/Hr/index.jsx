@@ -12,8 +12,11 @@ import { Toast } from '../../generics';
 import { connect } from 'react-redux';
 import { sentEmailAction } from '../../../redux/actions/generalActions';
 import OneID from '../../../assets/icons/One_ID.svg';
+import { useTranslation } from 'react-i18next';
 
 const HrRegister = ({ sentEmailAction }) => {
+	const { t } = useTranslation();
+
 	const navigate = useNavigate();
 	const [state, setState] = useState({
 		firstName: '',
@@ -35,10 +38,10 @@ const HrRegister = ({ sentEmailAction }) => {
 		if (!firstName || !email || !password) {
 			setError({
 				...error,
-				firstName: !firstName && 'Ism kiritilmadi',
-				email: !email && 'Email kiritilmadi',
-				password: !password && 'Password kiritilmadi',
-				companyName: !companyName && 'Company Nomi kiritilmadi',
+				firstName: !firstName && t('w150'),
+				email: !email && t('w138'),
+				password: !password && t('w152'),
+				companyName: !companyName && t('w137'),
 			});
 		} else if (password.length < 8) {
 			setError({
@@ -112,12 +115,9 @@ const HrRegister = ({ sentEmailAction }) => {
 		<div className="w-full h-screen flex max-[768px]:justify-center">
 			<div className="w-[50%]  flex flex-col items-center justify-center max-[768px]:w-[100%] p-[10px]">
 				<p className=" text-[#18181B] text-center text-[28px] font-[700] ">
-					Ro’yxatdan o’tish
+					{t('w100')}
 				</p>
-				<p className="leading-[35px] text-center">
-					Quyidagi tezkor roʻyxatdan oʻtish{' '}
-				</p>
-				<p className="mb-[32px] text-center">opsiyalaridan foydalaning</p>
+				<p className="leading-[35px] text-center">{t('w101')}</p>
 
 				<div className="flex gap-[16px] mb-[24px] max-[400px]:flex-col items-center ">
 					<div
@@ -138,8 +138,7 @@ const HrRegister = ({ sentEmailAction }) => {
 					border-[#D4D4D8] shadow-[0px 1px 2px 0px rgba(15, 15, 16, 0.05);] rounded-[12px] cursor-pointer w-[116px]
 					max-[400px]:w-[270px]"
 					>
-												<img src={OneID} height={20} width={64} />
-
+						<img src={OneID} height={20} width={64} />
 					</div>
 
 					<div
@@ -154,15 +153,15 @@ const HrRegister = ({ sentEmailAction }) => {
 
 				<div className="w-[375px] flex items-center gap-[4px] mb-[24px] max-[400px]:w-[90%]">
 					<div className="h-[1px] w-full bg-[#D4D4D8]"></div>
-					<p className="text-[#18181B] text-[16px] font-[500]"> Yoki</p>
+					<p className="text-[#18181B] text-[16px] font-[500]">{t('w41')}</p>
 					<div className="h-[1px] w-full bg-[#D4D4D8]"></div>
 				</div>
 
 				<div className="w-[375px] flex flex-col gap-[6px] mb-[16px] max-[400px]:w-[90%]">
-					<p className="text-[#18181B] text-[16px] font-[500]"> Ism</p>
+					<p className="text-[#18181B] text-[16px] font-[500]"> {t('w63')}</p>
 
 					<Input
-						placeholder="Ismingizni kiriting"
+						placeholder={t('w104')}
 						style={{ height: '52px', borderRadius: '12px' }}
 						onChange={handleChange}
 						value={firstName}
@@ -176,10 +175,10 @@ const HrRegister = ({ sentEmailAction }) => {
 				</div>
 
 				<div className="w-[375px] flex flex-col gap-[6px] mb-[16px] max-[400px]:w-[90%]">
-					<p className="text-[#18181B] text-[16px] font-[500]"> Email</p>
+					<p className="text-[#18181B] text-[16px] font-[500]">{t('w65')}</p>
 
 					<Input
-						placeholder="Emailingizni kiriting"
+						placeholder={t('w106')}
 						style={{ height: '52px', borderRadius: '12px' }}
 						onChange={handleChange}
 						value={email}
@@ -190,10 +189,10 @@ const HrRegister = ({ sentEmailAction }) => {
 					)}
 				</div>
 				<div className="w-[375px] flex flex-col gap-[6px] mb-[16px] max-[400px]:w-[90%]">
-					<p className="text-[#18181B] text-[16px] font-[500]"> Company Nomi</p>
+					<p className="text-[#18181B] text-[16px] font-[500]">{t('w107')}</p>
 
 					<Input
-						placeholder="Company nomini kiriting"
+						placeholder={t('w108')}
 						style={{ height: '52px', borderRadius: '12px' }}
 						onChange={handleChange}
 						value={companyName}
@@ -207,10 +206,10 @@ const HrRegister = ({ sentEmailAction }) => {
 				</div>
 
 				<div className="w-[375px] flex flex-col gap-[8px] mb-[10px] max-[400px]:w-[90%]">
-					<p className="text-[#18181B] text-[16px] font-[500]">Parol</p>
+					<p className="text-[#18181B] text-[16px] font-[500]">{t('w109')}</p>
 
 					<Input.Password
-						placeholder="Parolingizni kiriting"
+						placeholder={t('w110')}
 						style={{
 							height: '52px',
 							borderRadius: '12px',
@@ -239,21 +238,17 @@ const HrRegister = ({ sentEmailAction }) => {
 						htmlType="submit"
 						onClick={submitFunction}
 					>
-						<p className="text-[#fff] text-[16px] font-[600]">
-							Ro’yxatdan o’tish
-						</p>
+						<p className="text-[#fff] text-[16px] font-[600]">{t('w100')}</p>
 					</Button>
 				</div>
 
 				<div className="w-full flex justify-center gap-[10px] my-[15px]">
-					<p className="text-gray-700 text-[14px] font-[600]">
-						Akkountingiz bormi
-					</p>
+					<p className="text-gray-700 text-[14px] font-[600]">{t('w112')}</p>
 					<p
 						onClick={() => navigate('/signin')}
 						className="text-blue-500 text-[14px] font-[600]  cursor-pointer hover:underline"
 					>
-						Kirish
+						{t('w37')}
 					</p>
 				</div>
 			</div>

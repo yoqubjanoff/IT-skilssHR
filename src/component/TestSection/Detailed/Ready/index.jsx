@@ -91,7 +91,7 @@ const TalentRegister = () => {
 	return (
 		<div className="w-full h-screen flex  max-[1400px]:h-[100%] justify-center max-[1400px]:py-[100px]">
 			<AndModal
-				title="Til"
+				title={t('w142')}
 				open={isModalOpen}
 				footer={null}
 				onCancel={handleCancel}

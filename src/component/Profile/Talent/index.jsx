@@ -150,7 +150,7 @@ const TalentProfile = ({ getMeFunction, setUserData, userData }) => {
 				bgcolor={'#fff'}
 				onClick={() => setOpenCalendar(false)}
 			>
-				<p className="text-[#17171B] text-[16px] font-[600]">Tozalash</p>
+				<p className="text-[#17171B] text-[16px] font-[600]">{t('w125')}</p>
 			</Button>
 			<Button
 				type="primary"
@@ -203,8 +203,8 @@ const TalentProfile = ({ getMeFunction, setUserData, userData }) => {
 			setError({
 				...error,
 				birthDate: !editData.birthDate && 'sana kiritilmadi',
-				phoneNumber: !editData.phoneNumber && 'Raqam kiritilmadi',
-				firstName: !editData.firstName && 'Ism kiritilmadi',
+				phoneNumber: !editData.phoneNumber &&  t('w132') ,
+				firstName: !editData.firstName && t('w150'),
 			});
 		} else {
 			return callback();
@@ -223,7 +223,7 @@ const TalentProfile = ({ getMeFunction, setUserData, userData }) => {
 			setIsModalOpen(false);
 			Toast({
 				type: 'success',
-				message: 'Tahrirlandi !',
+				message: `${t('w155')} !`,
 			});
 			getMe();
 		} catch (error) {
@@ -433,7 +433,7 @@ const TalentProfile = ({ getMeFunction, setUserData, userData }) => {
 				<div className="flex flex-col gap-[16px]">
 					<div className="flex gap-[10px]">
 						<p className="text-[#18181B] text-[14px] font-[600] ">
-							CV ni PDF shaklida yuklash
+							{t('w141')}
 						</p>
 						<img
 							src={download}
@@ -529,7 +529,8 @@ const TalentProfile = ({ getMeFunction, setUserData, userData }) => {
 							onClick={handleCancelDownload}
 						>
 							<p className="text-[#17171B] text-[16px] font-[600]">
-								Bekor qilish
+															{t('w68')}
+
 							</p>
 						</Button>
 						<Button
@@ -541,7 +542,7 @@ const TalentProfile = ({ getMeFunction, setUserData, userData }) => {
 							bgcolor={'#2563EB'}
 							onClick={getFile}
 						>
-							<p className="text-[#fff] text-[16px] font-[600]">Yuklab olish</p>
+							<p className="text-[#fff] text-[16px] font-[600]">{t('w62')}</p>
 						</Button>
 					</div>
 				</div>
@@ -552,7 +553,7 @@ const TalentProfile = ({ getMeFunction, setUserData, userData }) => {
 				onCancel={handleCancel}
 				centered
 				maskClosable={false}
-				title="Shaxsiy ma’lumotlar"
+				title={t('w61')}
 				footer={null}
 				className="custom-border-radius-modal"
 				style={{ width: '680px' }}
@@ -594,13 +595,13 @@ const TalentProfile = ({ getMeFunction, setUserData, userData }) => {
 						className="text-[#2563EB] text-[16px] font-[600] hover:underline cursor-pointer"
 						onClick={UploadImage}
 					>
-						Yuklash
+						{t('w62')}
 					</p>
 				</div>
 
 				<div className="w-full flex gap-[20px] mb-[20px]">
 					<div className="w-full flex flex-col ">
-						<p className="text-[#71717A] text-[16px] font-[500]">Ism</p>
+						<p className="text-[#71717A] text-[16px] font-[500]">{t('w63')}</p>
 						<Input
 							onChange={onChangeFunction}
 							style={{ height: '52px', borderRadius: '12px' }}
@@ -617,7 +618,7 @@ const TalentProfile = ({ getMeFunction, setUserData, userData }) => {
 
 				<div className="w-full flex gap-[20px] mb-[20px] ">
 					<div className=" w-full flex flex-col gap-[5px]">
-						<p className="text-[#71717A] text-[16px] font-[500]">Raqam</p>
+						<p className="text-[#71717A] text-[16px] font-[500]"> {t('w64')}</p>
 						<Input
 							onChange={onChangeFunction}
 							style={{ height: '52px', borderRadius: '12px' }}
@@ -643,7 +644,7 @@ const TalentProfile = ({ getMeFunction, setUserData, userData }) => {
 					</div>
 				</div>
 				<div className="w-full flex flex-col mb-[24px] gap-[5px]">
-					<p className="text-[#71717A] text-[16px] font-[500]">Joylashuv</p>
+					<p className="text-[#71717A] text-[16px] font-[500]">{t('w66')}</p>
 					<Input
 						onChange={onChangeFunction}
 						style={{ height: '52px', borderRadius: '12px' }}
@@ -694,7 +695,8 @@ const TalentProfile = ({ getMeFunction, setUserData, userData }) => {
 						onClick={() => setIsModalOpen(false)}
 					>
 						<p className="text-[#17171B] text-[16px] font-[600]">
-							Bekor qilish
+														{t('w68')}
+
 						</p>
 					</Button>
 					<Button
@@ -707,7 +709,7 @@ const TalentProfile = ({ getMeFunction, setUserData, userData }) => {
 						margin={'16px 0 0 0'}
 						onClick={submitFunction}
 					>
-						<p className="text-[#fff] text-[16px] font-[600]">Saqlash</p>
+						<p className="text-[#fff] text-[16px] font-[600]">{t('w69')}</p>
 					</Button>
 				</div>
 			</AndModal>
@@ -820,7 +822,7 @@ const TalentProfile = ({ getMeFunction, setUserData, userData }) => {
 						"
 					>
 						<p className="text-[#18181B] text-[14px] font-[600] ">
-							CV ni PDF shaklida yuklash
+							{t('w141')}
 						</p>
 						<img
 							src={download}
@@ -889,7 +891,7 @@ const TalentProfile = ({ getMeFunction, setUserData, userData }) => {
 						"
 						>
 							<p className="text-[#18181B] text-[14px] font-[600] ">
-								CV ni PDF shaklida yuklash
+								{t('w141')}
 							</p>
 							<img
 								src={download}

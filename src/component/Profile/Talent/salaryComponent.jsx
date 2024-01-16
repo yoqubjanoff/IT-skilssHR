@@ -51,7 +51,7 @@ const Salary = ({ data, getMeFunc }) => {
 				onCancel={handleCancel}
 				centered
 				maskClosable={false}
-				title="Kutilayotgan maosh"
+				title={t('w146')}
 				footer={null}
 				className="custom-border-radius-modal"
 				style={{ width: '680px' }}
@@ -76,9 +76,7 @@ const Salary = ({ data, getMeFunc }) => {
 						margin={'16px 0 0 0'}
 						onClick={() => setIsModalOpen(false)}
 					>
-						<p className="text-[#17171B] text-[16px] font-[600]">
-							Bekor qilish
-						</p>
+						<p className="text-[#17171B] text-[16px] font-[600]">{t('w68')}</p>
 					</Button>
 					<Button
 						type="primary"
@@ -90,7 +88,7 @@ const Salary = ({ data, getMeFunc }) => {
 						margin={'16px 0 0 0'}
 						onClick={editContact}
 					>
-						<p className="text-[#fff] text-[16px] font-[600]">Saqlash</p>
+						<p className="text-[#fff] text-[16px] font-[600]">{t('w69')}</p>
 					</Button>
 				</div>
 			</AndModal>
@@ -98,7 +96,7 @@ const Salary = ({ data, getMeFunc }) => {
 			<div className="w-full flex justify-between items-center">
 				<p className="text-[#18181B] text-[16px] font-[600] ">
 					{' '}
-					Kutilayotgan maosh
+					{t('w146')}
 				</p>
 				{data?.minSalary ? (
 					<img

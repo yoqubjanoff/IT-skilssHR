@@ -86,7 +86,7 @@ export const column = [
 	},
 
 	{
-		headerName: 'Email address',
+		headerName: 'address',
 		// cellRenderer: () => Renderer('nigora4957@gmial.com'),
 		field: 'email',
 

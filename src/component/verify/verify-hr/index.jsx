@@ -3,7 +3,13 @@ import { Button, Toast } from '../../generics';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Skeleton } from 'antd';
 import request from '../../../services/api/hr-request';
+import { useTranslation } from 'react-i18next';
+
+
+
+
 const VerifyHr = () => {
+	const { t, i18n } = useTranslation();
 	const navigate = useNavigate();
 	let { id } = useParams();
 	const [error, setError] = useState(false);
@@ -28,7 +34,7 @@ const VerifyHr = () => {
 		<div className="w-full h-screen flex justify-center items-center">
 			{error ? (
 				<div className="w-fit flex flex-col gap-16px justify-center items-center ">
-					<h1>Bu sahifa eskirgan 🙁</h1>
+					<h1>{t('w154')} 🙁</h1>
 					<Button
 						type="primary"
 						radius={'12px'}
@@ -40,7 +46,7 @@ const VerifyHr = () => {
 						onClick={() => navigate('/')}
 					>
 						<p className="text-[#fff] text-[16px] font-[600]">
-							Bosh sahifaga qaytish
+						{t('w152')}
 						</p>
 					</Button>
 				</div>

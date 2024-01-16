@@ -134,9 +134,7 @@ const Navbar = ({ userData, setUserData, setHrData, hrData }) => {
 					onClick={() => navigate('/hr-profile')}
 				>
 					<img src={Profile} alt="profile" width={24} height={24} />
-					<p className="text-[#18181B] text-[16px] font-[500] ">
-						Profilni ko’rish
-					</p>
+					<p className="text-[#18181B] text-[16px] font-[500] ">{t('w81')}</p>
 				</div>
 			),
 			key: '0',
@@ -148,7 +146,7 @@ const Navbar = ({ userData, setUserData, setHrData, hrData }) => {
 					onClick={() => setOpenSettings(true)}
 				>
 					<img src={Setting} alt="profile" width={24} height={24} />
-					<p className="text-[#18181B] text-[16px] font-[500] ">Sozlamalar</p>
+					<p className="text-[#18181B] text-[16px] font-[500] ">{t('w82')}</p>
 				</div>
 			),
 			key: '1',
@@ -160,9 +158,7 @@ const Navbar = ({ userData, setUserData, setHrData, hrData }) => {
 					onClick={() => navigate('/explore?selected=true')}
 				>
 					<img src={Save} alt="profile" width={24} height={24} />
-					<p className="text-[#18181B] text-[16px] font-[500] ">
-						Saqlangan mutaxasislar
-					</p>
+					<p className="text-[#18181B] text-[16px] font-[500] ">{t('w118')}</p>
 				</div>
 			),
 			key: '11',
@@ -170,17 +166,15 @@ const Navbar = ({ userData, setUserData, setHrData, hrData }) => {
 		{
 			label: (
 				<AntdPopconfirm
-					title="Profildan chiqmoqchimisiz ? "
-					cancelText="Yo`q"
-					okText="Ha"
+					title={t('w96')}
+					cancelText={t('w97')}
+					okText={t('w98')}
 					onConfirm={onConfirm}
 					arrow={false}
 				>
 					<div className="flex items-center gap-[5px] cursor-pointer my-[5px]">
 						<img src={Logout} alt="profile" width={24} height={24} />
-						<p className="text-[#DC2626] text-[16px] font-[500] ">
-							Profildan chiqish
-						</p>
+						<p className="text-[#DC2626] text-[16px] font-[500] ">{t('w84')}</p>
 					</div>
 				</AntdPopconfirm>
 			),
@@ -467,7 +461,7 @@ const Navbar = ({ userData, setUserData, setHrData, hrData }) => {
 			handleCancel();
 			Toast({
 				type: 'success',
-				message: 'Tahrirlandi !',
+				message: `${t('w155')} !`,
 			});
 			getMe();
 		} catch (error) {
@@ -481,9 +475,9 @@ const Navbar = ({ userData, setUserData, setHrData, hrData }) => {
 		if (!data.oldPassword || !data.newPassword || !data.copyPassword) {
 			setError({
 				...error,
-				oldPassword: !data.oldPassword && 'Eski parol kiritilmadi',
-				newPassword: !data.newPassword && 'Yangi Parol kiritilmadi',
-				copyPassword: !data.copyPassword && 'Yangi Parol kiritilmadi',
+				oldPassword: !data.oldPassword && t('w127'),
+				newPassword: !data.newPassword && t('w128'),
+				copyPassword: !data.copyPassword && t('w128'),
 			});
 		} else {
 			return callback();
@@ -535,14 +529,14 @@ const Navbar = ({ userData, setUserData, setHrData, hrData }) => {
 					<div>
 						<div className=" w-full flex flex-col mb-[24px] gap-[5px]">
 							<p className="text-[#18181B] text-[28px] font-[700]">
-								Parolni o’zgartirish
+								{t('w87')}
 							</p>
 
 							<p className="text-[#71717A] text-[16px] font-[500]">
-								Eski parol
+								{t('w88')}
 							</p>
 							<Input.Password
-								placeholder="Parolingizni kiriting"
+								placeholder={t('w89')}
 								style={{
 									height: '52px',
 									borderRadius: '12px',
@@ -562,10 +556,10 @@ const Navbar = ({ userData, setUserData, setHrData, hrData }) => {
 						</div>
 						<div className=" w-full flex flex-col mb-[24px] gap-[5px]">
 							<p className="text-[#71717A] text-[16px] font-[500]">
-								Yangi Parol
+								{t('w90')}
 							</p>
 							<Input.Password
-								placeholder="Parolingizni kiriting"
+								placeholder={t('w89')}
 								style={{
 									height: '52px',
 									borderRadius: '12px',
@@ -585,10 +579,10 @@ const Navbar = ({ userData, setUserData, setHrData, hrData }) => {
 						</div>
 						<div className=" w-full flex flex-col mb-[24px] gap-[5px]">
 							<p className="text-[#71717A] text-[16px] font-[500]">
-								Parolni tasdiqlang
+								{t('w92')}
 							</p>
 							<Input.Password
-								placeholder="Parolingizni kiriting"
+								placeholder={t('w89')}
 								style={{
 									height: '52px',
 									borderRadius: '12px',
@@ -615,9 +609,7 @@ const Navbar = ({ userData, setUserData, setHrData, hrData }) => {
 						bgcolor={'#2563EB'}
 						onClick={submitFunction}
 					>
-						<p className="text-[#fff] text-[16px] font-[600]">
-							Parolni o’zgartirish
-						</p>
+						<p className="text-[#fff] text-[16px] font-[600]">{t('w87')}</p>
 					</Button>
 				</div>
 			</AndModal>
@@ -710,7 +702,7 @@ const Navbar = ({ userData, setUserData, setHrData, hrData }) => {
 						</AntdButton>
 						<AntdButton type="primary" onClick={() => navigate('/register')}>
 							<p className="middle" style={{ color: '#fff' }}>
-								Ro’yxatdan o’tish
+								{t('w100')}
 							</p>
 						</AntdButton>
 					</div>
@@ -749,7 +741,7 @@ const Navbar = ({ userData, setUserData, setHrData, hrData }) => {
 								<img src={Safe} width={24} height={24} />
 							</div>
 							<p className="text-[#212121] text-[16px] font-[600]">
-								Parolni o’zgartirish
+								{t('w87')}
 							</p>
 						</div>
 						<img src={Right} width={24} height={24} />
@@ -764,7 +756,7 @@ const Navbar = ({ userData, setUserData, setHrData, hrData }) => {
 								<img src={Trash} width={24} height={24} />
 							</div>
 							<p className="text-[#212121] text-[16px] font-[600]">
-								Profilni o’chirish
+								{t('w81')}
 							</p>
 						</div>
 						<img src={Right} width={24} height={24} />
@@ -781,10 +773,10 @@ const Navbar = ({ userData, setUserData, setHrData, hrData }) => {
 			>
 				<div className="flex flex-col gap-[16px]">
 					<p className="text-[#212121] text-[24px] font-[600] leading-[36px] text-center">
-						Ishonchingiz komilmi?
+						{t('w129')}
 					</p>
 					<p className="text-[#212121] text-[16px] font-[400] opacity-70 text-center">
-						Ortga yo’l yo’q. Hamma ma’lumotlaringiz ham uchib ketadi
+						{t('w130')}
 					</p>
 
 					<div className="flex gap-[16px] max-[450px]:flex-col">
@@ -796,7 +788,9 @@ const Navbar = ({ userData, setUserData, setHrData, hrData }) => {
 							bgcolor={'#fff'}
 							onClick={() => setOpenDeleteProfile(false)}
 						>
-							<p className="text-[#17171B] text-[16px] font-[600]">Orqaga</p>
+							<p className="text-[#17171B] text-[16px] font-[600]">
+								{t('w131')}
+							</p>
 						</Button>
 						<Button
 							type="danger"
@@ -806,9 +800,7 @@ const Navbar = ({ userData, setUserData, setHrData, hrData }) => {
 							bgcolor={'#DC2626'}
 							onClick={deleteProfile}
 						>
-							<p className="text-[#fff] text-[16px] font-[600]">
-								Profilni o’chirish
-							</p>
+							<p className="text-[#fff] text-[16px] font-[600]">{t('w117')}</p>
 						</Button>
 					</div>
 				</div>
